@@ -6,12 +6,11 @@ body {
   
 }
 
+
+
 #menu-container {
     width: 100%;
-    margin: 20px auto;
-    background-color: #ffffff00;
     border-radius: 8px;
-
 
 }
 .text{
@@ -22,20 +21,21 @@ body {
 
 #menu-items {
     display: grid;
-    justify-content: center;
-    align-items: center;
+
 }
 
+
+
 .menu-item {
-    background-color: #f0f0f0;
+    background-color: #eee;
+    margin: 5px;
+    padding: 20px;
     width: 100%;
-    margin: 10px;
-    padding: 10px;
     border-radius: 8px;
     text-align: center;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 10px rgba(85, 85, 85, 0.336);
 
 }
 
@@ -48,7 +48,7 @@ body {
 
 
 .menu-item .price {
-    margin: 5px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
     font-size: 1em;
     color: #e74c3c;
 }
@@ -59,3 +59,36 @@ body {
     height: auto;
     border-radius: 8px;
 }
+
+
+.scroll-container {
+    background-color: #72727249;
+    display: flex;
+    width: auto;
+    padding: 10px;
+    justify-content: center;
+    gap: 8px;
+    max-height: 85vh;
+    overflow-y: auto;
+}
+
+.scroll-content {
+    line-height: 1.6;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+  
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f0ebeb;
+    border-radius: 20px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #1b1b1b;
+    border-radius: 10px;
+    transform: 0.7s;
+  }
+  

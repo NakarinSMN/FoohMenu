@@ -25,8 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
             menuItem.innerHTML = `
                 <h2>${item.name}</h2>
                 <p class="price">${item.price}</p>
+                <footer>${item.description}</footer>
             `;
-
+            
             menuContainer.appendChild(menuItem);
         });
     }

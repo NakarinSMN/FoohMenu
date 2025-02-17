@@ -10,6 +10,8 @@ body {
 
 #menu-container {
     width: 100%;
+    max-width: 1200px; /* จำกัดขนาดสูงสุดของเมนู */
+    margin: auto;
     border-radius: 8px;
 
 }
@@ -22,27 +24,26 @@ body {
 
 #menu-items {
     display: grid;
+    gap: 10px;
     padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* ทำให้ responsive */
 }
 
 
 
 .menu-item {
     background-color: #eee;
-    margin: 5px;
-    padding: 20px;
+    padding: 15px;
     border-radius: 8px;
     text-align: left;
-    min-width: 30vh;
+    min-width: auto;
     box-shadow: 5px 5px 10px rgba(85, 85, 85, 0.336);
 
 }
 
 .menu-item h2 {
-    margin: 0px 100px 0px 0px;
-    color: #333;
-    font-weight: 300;
-    font-size: 1em;
+    margin: 0px 0px 10px 0px;
+    font-size: 1.1em;
 }
 
 

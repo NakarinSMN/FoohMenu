@@ -294,7 +294,7 @@ const menuItems = [
     },
     {
         name: "15. ตับย่างน้ำจิ้มแจ่ว",
-        price: " บาท",
+        price: "120 บาท",
         category: "เมนูกับข้าว",
         description: "เมนูกับข้าว",
     },

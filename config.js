@@ -483,7 +483,7 @@ const menuItems = [
         description: "เมนูของหวาน",
     },
     {
-        name: "10. ข้าวเหนี่ยวมะม่วง",
+        name: "10. ข้าวเหนียวมะม่วง",
         price: "60 บาท",
         category: "เมนูของหวาน",
         description: "เมนูของหวาน",

@@ -25,6 +25,7 @@ function CategoryBar({ categories, selectedCategory, setSelectedCategory }) {
         aria-label="All"
       >
         <i className="fas fa-th-large"></i>
+        <span className="label">ทั้งหมด</span>
       </button>
       {categories.map((cat) => (
         <button
@@ -34,6 +35,7 @@ function CategoryBar({ categories, selectedCategory, setSelectedCategory }) {
           aria-label={cat}
         >
           <i className={`fas ${categoryIcons[cat] || "fa-utensils"}`}></i>
+          <span className="label">{cat}</span>
         </button>
       ))}
     </div>

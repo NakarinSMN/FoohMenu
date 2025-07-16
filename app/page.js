@@ -1,7 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { CategoryContext } from "./CategoryBarClient";
 
 export default function Home() {
+  const { selectedCategory } = useContext(CategoryContext);
   const [menu, setMenu] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -25,15 +27,20 @@ export default function Home() {
   if (loading) return <div style={{textAlign:'center',marginTop:40}}>กำลังโหลดเมนู...</div>;
   if (error) return <div style={{color:'red',textAlign:'center',marginTop:40}}>{error}</div>;
 
+  // ฟิลเตอร์เมนูตาม selectedCategory
+  const filteredMenu = selectedCategory === "all"
+    ? menu
+    : menu.filter(item => item.category === selectedCategory);
+
   return (
     <div id="menu-container">
       <div className="menu-body" id="menu-items">
-        {menu.length === 0 ? (
+        {filteredMenu.length === 0 ? (
           <div style={{ textAlign: 'center', color: '#aaa', marginTop: 40 }}>ไม่พบเมนู</div>
         ) : (
-          menu.map((item, idx) => (
+          filteredMenu.map((item, idx) => (
             <div className="menu-item" key={item.id || idx}>
-              <h3>{item.menulist}</h3>
+              <h3><span style={{color:'#888',marginRight:8}}>{item.id}</span>{item.menulist}</h3>
               <div className="price">{item.price} บาท</div>
               <footer>{item.category}</footer>
             </div>

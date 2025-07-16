@@ -1,6 +1,5 @@
 "use client";
-import { createContext, useState } from "react";
-import { menuItems } from "../data/menuItems";
+import { createContext, useState, useEffect } from "react";
 
 export const CategoryContext = createContext();
 
@@ -16,7 +15,10 @@ const categoryIcons = {
   "อาหารญี่ปุ่น": "fa-shrimp",
 };
 
-function CategoryBar({ categories, selectedCategory, setSelectedCategory }) {
+function CategoryBar({ categories, selectedCategory, setSelectedCategory, loading }) {
+  if (loading) {
+    return <div className="category-bar" style={{justifyContent:'center',padding:'18px 0'}}>กำลังโหลดหมวดหมู่...</div>;
+  }
   return (
     <div className="category-bar">
       <button
@@ -43,23 +45,32 @@ function CategoryBar({ categories, selectedCategory, setSelectedCategory }) {
 }
 
 export default function CategoryBarClient({ children }) {
-  // เพิ่มหมวดหมู่ใหม่
-  const extraCategories = ["อาหารเจ", "อาหารทะเล", "สลัด", "อาหารญี่ปุ่น"];
-  const categories = menuItems.reduce((acc, item) => {
-    if (!acc.includes(item.category)) acc.push(item.category);
-    return acc;
-  }, []);
-  extraCategories.forEach(cat => {
-    if (!categories.includes(cat)) categories.push(cat);
-  });
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch("https://script.google.com/macros/s/AKfycbzwDckZvQ8dSV7ikbDEL1xw7COSSQFTV-k0AKVG1x_ZagfnWPJaD7NWy-Iw_oxdYEB4/exec")
+      .then(res => res.json())
+      .then(data => {
+        const cats = Array.from(new Set(data.map(item => item.category))).filter(Boolean);
+        setCategories(cats);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
 
   return (
-    <CategoryContext.Provider value={{ selectedCategory, setSelectedCategory, categories }}>
+    <CategoryContext.Provider value={{ selectedCategory, setSelectedCategory, categories, loading }}>
       <CategoryBar
         categories={categories}
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
+        loading={loading}
       />
       {children}
     </CategoryContext.Provider>

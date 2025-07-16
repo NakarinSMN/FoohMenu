@@ -91,6 +91,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-family: 'Kanit', sans-serif;
   gap: 8px;
   background: #f5f5f5;
   border: 1.5px solid #bdbdbd;
@@ -156,13 +157,16 @@ body {
     padding-right: 32px;
     justify-content: center;
     width: 100%;
-    max-width: 1000px;
+    max-width: 2000px;
   }
   .category-btn {
-    width: 60px;
     height: 60px;
-    min-width: 60px;
-    font-size: 1.3em;
+    font-size: 0.98em;
+    height: 36px;
+    padding: 0 8px;
+    border-radius: 14px;
+    gap: 6px;
+    
   }
   .menu-body {
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -230,6 +234,7 @@ body {
     flex-direction: column;
     gap: 10px;
     min-width: 0;
+    max-height: 110px;
     border: 1.5px solid #e0e0e0;
     align-items: center;
     transition: box-shadow 0.2s, border 0.2s;

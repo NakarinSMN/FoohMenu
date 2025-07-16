@@ -40,9 +40,21 @@ export default function Home() {
         ) : (
           filteredMenu.map((item, idx) => (
             <div className="menu-item" key={item.id || idx}>
-              <h3><span style={{color:'#888',marginRight:8}}>{item.id}</span>{item.menulist}</h3>
-              <div className="price">{item.price} บาท</div>
-              <footer>{item.category}</footer>
+              <div className="menu-item-row">
+                <img
+                  src={item.image || "/no-image.png"}
+                  alt={item.menulist}
+                  className="menu-img"
+                  width={64}
+                  height={64}
+                  style={{objectFit:'cover', borderRadius:12, background:'#eee'}}
+                />
+                <div className="menu-info">
+                  <h3><span style={{color:'#888',marginRight:8}}>{item.id}</span>{item.menulist}</h3>
+                  <div className="price">{item.price} บาท</div>
+                  <footer>{item.category}</footer>
+                </div>
+              </div>
             </div>
           ))
         )}

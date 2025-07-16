@@ -236,7 +236,7 @@ body {
     min-width: 0;
     max-height: 110px;
     border: 1.5px solid #e0e0e0;
-    align-items: center;
+    align-items: first baseline;
     transition: box-shadow 0.2s, border 0.2s;
 }
 
@@ -319,4 +319,38 @@ body {
         padding: 2px 0 2px 0;
         border-radius: 0 0 8px 8px;
     }
+}
+
+.menu-item-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.menu-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #eee;
+  flex-shrink: 0;
+  align-self: flex-start;
+  align-items: center;
+  margin-left: 0;
+}
+
+.menu-info {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+}
+
+.menu-item h3, .menu-item .price, .menu-item footer {
+  text-align: left;
 }

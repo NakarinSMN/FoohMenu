@@ -262,3 +262,48 @@ body {
         gap: 12px;
     }
 }
+
+@media (max-width: 480px) {
+  .header {
+    font-size: 0.95rem;
+    padding: 10px 0 6px 0;
+    border-radius: 0 0 14px 14px;
+  }
+  .category-bar {
+    gap: 6px;
+    padding: 6px 2px;
+    border-radius: 18px;
+  }
+  .category-btn {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    font-size: 0.9em;
+    border-radius: 50%;
+  }
+  #menu-container {
+    padding: 60px 0 60px 0;
+    border-radius: 0;
+    max-width: 100vw;
+    margin: 0;
+  }
+  .menu-body {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 0 2px;
+  }
+  .menu-item {
+    padding: 10px 4px 10px 4px;
+    border-radius: 10px;
+    font-size: 0.98em;
+  }
+  .menu-item h3 {
+    font-size: 1em;
+  }
+  .menu-item .price {
+    font-size: 1em;
+  }
+  .menu-item footer {
+    font-size: 0.9em;
+  }
+}

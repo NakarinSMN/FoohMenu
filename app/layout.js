@@ -17,15 +17,16 @@ export default function RootLayout({ children }) {
       <body>
         <div className="header">
           <div className="head-main">
-            <h1 className="text">
-              food menu
-            </h1>
+
             {/* <ScoreBar /> */}
             <CategoryBarClient>
               {children}
             </CategoryBarClient>
           </div>
         </div>
+        <footer className="footer">
+          <span>© 2024 FoohMenu</span>
+        </footer>
       </body>
     </html>
   );

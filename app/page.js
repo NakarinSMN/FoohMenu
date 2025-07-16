@@ -45,9 +45,9 @@ export default function Home() {
                   src={item.image || "/no-image.png"}
                   alt={item.menulist}
                   className="menu-img"
-                  width={64}
-                  height={64}
-                  style={{objectFit:'cover', borderRadius:12, background:'#eee'}}
+                  width={120}
+                  height={120}
+                  style={{objectFit:'cover', borderRadius:16, background:'#eee', alignSelf:'flex-start', marginTop:0}}
                 />
                 <div className="menu-info">
                   <h3><span style={{color:'#888',marginRight:8}}>{item.id}</span>{item.menulist}</h3>

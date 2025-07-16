@@ -93,24 +93,25 @@ body {
   align-items: center;
   font-family: 'Kanit', sans-serif;
   gap: 8px;
-  background: #f5f5f5;
-  border: 1.5px solid #bdbdbd;
+  background: linear-gradient(135deg,rgba(255, 255, 255, 1) 19%, rgba(255, 252, 252, 1) 63%, rgba(245, 242, 242, 1) 100%);
+  border: 1px solid #fff;
   border-radius: 18px;
   height: 44px;
   padding: 0 14px;
   color: #23422a;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border 0.2s;
-  box-shadow: 0 1px 4px 0 rgba(60,60,60,0.03);
+  box-shadow: 0 1px 4px 0 rgba(60, 60, 60, 0.342);
   font-size: 1.05em;
   font-weight: 500;
   white-space: nowrap;
 }
 
 .category-btn.selected, .category-btn:hover {
-  background: #fff;
-  color: #23422a;
-  border: 1.5px solid #23422a;
+
+background: linear-gradient(135deg,rgba(222, 222, 222, 1) 0%, rgba(222, 222, 222, 1) 50%, rgba(165, 178, 184, 1) 50%);
+  color: #ffffff;
+  border: 1px solid #ffffff;
 }
 
 .category-btn i {
@@ -197,9 +198,6 @@ body {
   padding-bottom: 30px;
   padding-top: 30px;
   overflow-y: auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
   background: transparent;
   gap: 12px;
 }
@@ -226,17 +224,17 @@ body {
 }
 
 .menu-item {
-    background: #fff;
-    border-radius: 18px;
-    box-shadow: 2px 2px 10px 0 rgba(60, 60, 60, 0.08);
-    padding: 22px 12px 16px 12px;
+   background: linear-gradient(135deg,rgba(255, 255, 255, 1) 19%, rgba(255, 252, 252, 1) 63%, rgba(245, 242, 242, 1) 100%);
+    border-radius: 20px;
+    box-shadow: 0 5px 10px 0 rgba(8, 8, 8, 0.151);
     display: flex;
+    padding: 10px;
     flex-direction: column;
-    gap: 10px;
     min-width: 0;
-    max-height: 110px;
-    border: 1.5px solid #e0e0e0;
-    align-items: first baseline;
+    max-height: max-content;
+    align-items: flex-start;
+    border: #fff solid 1px;
+    margin-top: 15px;
     transition: box-shadow 0.2s, border 0.2s;
 }
 
@@ -246,18 +244,18 @@ body {
 }
 
 .menu-item h3 {
-    margin: 0 0 2px 0;
+    margin: 6px 0 2px 0;
     font-size: 1.01rem;
     color: #23422a;
-    font-weight: 700;
+    font-weight: 500;
     text-align: center;
 }
 
 .menu-item .price {
     margin: 0;
     font-size: 1.08em;
-    color: #23422a;
-    font-weight: 700;
+    color: #0d0553;
+    font-weight: 600;
     text-align: center;
 }
 

@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
           </div>
         </div>
         <footer className="footer">
-          <span>© 2024 FoohMenu</span>
+          <span>© 2025 rkjmenu by smn dev</span>
         </footer>
       </body>
     </html>

@@ -340,8 +340,8 @@ background: linear-gradient(135deg,rgba(222, 222, 222, 1) 0%, rgba(222, 222, 222
 }
 
 .menu-item h3 {
-    margin: 6px 0 2px 0;
-    font-size: 1.01rem;
+    margin: 5px 0 2px 0;
+    font-size: 0.8rem;
     color: #23422a;
     font-weight: 500;
     text-align: center;
@@ -349,14 +349,14 @@ background: linear-gradient(135deg,rgba(222, 222, 222, 1) 0%, rgba(222, 222, 222
 
 .menu-item .price {
     margin: 0;
-    font-size: 1.08em;
+    font-size: 0.8em;
     color: #0d0553;
     font-weight: 600;
     text-align: center;
 }
 
 .menu-item footer {
-    font-size: 0.93rem;
+    font-size: 0.8em;
     color: #23422a;
     border-top: 1px solid #e0e0e0;
     padding-top: 5px;

@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useState, useEffect, useMemo } from "react";
 import { fetchWithCache } from "./utils/cache";
+import { cacheManager } from './utils/cache';
 
 export const CategoryContext = createContext();
 
@@ -73,6 +74,7 @@ export default function CategoryBarClient({ children }) {
   };
 
   useEffect(() => {
+    cacheManager.clear();
     fetchCategories();
   }, []);
 

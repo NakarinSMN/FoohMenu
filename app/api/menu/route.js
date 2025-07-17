@@ -1,7 +1,7 @@
 // Server-side cache
 let cache = null;
 let cacheTime = 0;
-const CACHE_DURATION = 5 * 60 * 1000; // 5 นาที
+const CACHE_DURATION = 3 * 1000; // 3 วินาที
 
 export async function GET(req) {
   try {
@@ -12,7 +12,7 @@ export async function GET(req) {
         status: 200,
         headers: {
           'Content-Type': 'application/json',
-          'Cache-Control': 'public, max-age=300' // Browser cache 5 นาที
+          'Cache-Control': 'public, max-age=3'
         }
       });
     }
@@ -25,24 +25,24 @@ export async function GET(req) {
       "https://script.google.com/macros/s/AKfycbzwDckZvQ8dSV7ikbDEL1xw7COSSQFTV-k0AKVG1x_ZagfnWPJaD7NWy-Iw_oxdYEB4/exec",
       { signal: controller.signal }
     );
-
+    
     clearTimeout(timeoutId);
 
     if (!response.ok) {
       return new Response(JSON.stringify({ error: "ไม่สามารถโหลดข้อมูลได้" }), { status: 500 });
     }
-
+    
     const data = await response.json();
-
+    
     // เก็บใน cache
     cache = data;
     cacheTime = now;
-
+    
     return new Response(JSON.stringify(data), {
       status: 200,
       headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 'public, max-age=300'
+        'Cache-Control': 'public, max-age=3'
       }
     });
   } catch (err) {

@@ -2,7 +2,7 @@
 class AdvancedCacheManager {
   constructor() {
     this.memoryCache = new Map();
-    this.defaultTTL = 5 *60 *1000; // 5 นาที
+    this.defaultTTL = 3 * 1000; // 3 วินาที
   }
 
   // Memory Cache

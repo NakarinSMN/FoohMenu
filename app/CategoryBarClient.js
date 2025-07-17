@@ -1,5 +1,6 @@
 "use client";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect, useMemo } from "react";
+import { fetchWithCache } from "./utils/cache";
 
 export const CategoryContext = createContext();
 
@@ -17,7 +18,12 @@ const categoryIcons = {
 
 function CategoryBar({ categories, selectedCategory, setSelectedCategory, loading }) {
   if (loading) {
-    return <div className="category-bar" style={{justifyContent:'center',padding:'18px 0'}}>กำลังโหลดหมวดหมู่...</div>;
+    return (
+      <div className="category-bar" style={{ justifyContent: 'center', padding: '18px 0', display: 'flex', alignItems: 'center', gap: 10 }}>
+        <div style={{ width: 20, height: 20, border: '2px solid #f3f3f3', borderTop: '2px solid #3498db', borderRadius: '50%', animation: 'spin 1s linear infinite' }}></div>
+        กำลังโหลดหมวดหมู่...
+      </div>
+    );
   }
   return (
     <div className="category-bar">
@@ -50,22 +56,37 @@ export default function CategoryBarClient({ children }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const fetchCategories = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      
+      // ใช้ fetchWithCache แทน fetch ตรงๆ
+      const data = await fetchWithCache("/api/menu");
+      const cats = Array.from(new Set(data.map(item => item.category))).filter(Boolean);
+      setCategories(cats);
+      setLoading(false);
+    } catch (err) {
+      setError(err.message);
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    fetch("https://script.google.com/macros/s/AKfycbzwDckZvQ8dSV7ikbDEL1xw7COSSQFTV-k0AKVG1x_ZagfnWPJaD7NWy-Iw_oxdYEB4/exec")
-      .then(res => res.json())
-      .then(data => {
-        const cats = Array.from(new Set(data.map(item => item.category))).filter(Boolean);
-        setCategories(cats);
-        setLoading(false);
-      })
-      .catch(err => {
-        setError(err.message);
-        setLoading(false);
-      });
+    fetchCategories();
   }, []);
 
+  const contextValue = useMemo(() => ({
+    selectedCategory,
+    setSelectedCategory,
+    categories,
+    loading,
+    error,
+    refetch: fetchCategories
+  }), [selectedCategory, categories, loading, error]);
+
   return (
-    <CategoryContext.Provider value={{ selectedCategory, setSelectedCategory, categories, loading }}>
+    <CategoryContext.Provider value={contextValue}>
       <CategoryBar
         categories={categories}
         selectedCategory={selectedCategory}

@@ -286,7 +286,7 @@ background: linear-gradient(135deg,rgba(222, 222, 222, 1) 0%, rgba(222, 222, 222
   padding-bottom: 30px;
   padding-top: 30px;
   overflow-y: auto;
-  background: transparent
+  background: transparent;
   gap: 12px;
 }
 

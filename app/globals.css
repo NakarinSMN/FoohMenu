@@ -321,7 +321,7 @@ background: linear-gradient(135deg,rgba(222, 222, 222, 1) 0%, rgba(222, 222, 222
 }
 
 .menu-item {
-  background-image:url(../public/bg01.png);
+  background-image:url('/bg01.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
         </div>
         <CacheManager />
         <footer className="footer">
-          <span>© 225rkjmenu by smn dev</span>
+          <span>© 2025 rkjmenu by smn dev</span>
         </footer>
       </body>
     </html>

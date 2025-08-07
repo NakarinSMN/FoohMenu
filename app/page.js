@@ -148,6 +148,7 @@ export default function Home() {
                     </h3>
                     <div className="price">{item.price} บาท</div>
                     <footer>{item.category}</footer>
+                    <p>เนื้อหาและภาพใช้ในเชิงประชาสัมพันธ์เท่านั้น</p>
                   </div>
                 </div>
               </div>

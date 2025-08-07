@@ -18,6 +18,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <div className="header">
+           
           <div className="head-main">
 
             {/* <ScoreBar /> */}
